@@ -387,6 +387,10 @@ src/
 └─ themes/themes.css    カラースキーム（daisyUI 独自テーマ）
 ```
 
+## ファビコン
+
+- `public/favicon.ico` に置き、`index.html` から相対パスで読み込む（ビルドで `dist/` にコピーされる）。
+
 ## サンプル（作例）
 
 - `public/samples/` に作例を置く（`slidemaker_sample.html` = 配信用ページ、`slidemaker_sample.pdf` = PDF）。Vite がビルド時に `dist/samples/` へそのままコピーし、GitHub Pages でも公開される。
