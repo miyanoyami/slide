@@ -1,0 +1,11 @@
+/* 編集画面用 CSS（出力スライドの CSS は src/templates/slide.css） */
+@import "tailwindcss";
+@source not "./templates";
+@plugin "daisyui" {
+  themes: light --default;
+}
+
+/* 編集画面のフォント。どのパソコンでも同じ見た目になるよう、同梱の BIZ UDPゴシックを使う */
+@theme {
+  --font-sans: "BIZ UDPGothic", ui-sans-serif, system-ui, sans-serif;
+}

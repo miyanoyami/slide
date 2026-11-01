@@ -1,0 +1,210 @@
+/* プレイヤー（書き出し HTML / プレビュー）の画面まわり。スライドの見た目には影響しない */
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+}
+.vs-body {
+  overflow: hidden;
+  background: #111;
+}
+.vs-body.vs-hide-cursor {
+  cursor: none;
+}
+.vs-stage {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1920px;
+  height: 1080px;
+  transform-origin: 0 0;
+}
+
+/* プレビュー専用：アバター用余白の表示 */
+.vs-safe-indicator {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: 50;
+  display: none;
+  width: var(--safe-w, 0px);
+  height: var(--safe-h, 0px);
+  box-sizing: border-box;
+  border: 6px dashed rgb(255 70 70 / 0.9);
+  background: rgb(255 70 70 / 0.15);
+  pointer-events: none;
+}
+.vs-safe-indicator.is-on {
+  display: block;
+}
+/* タイトルページにはアバター用余白を適用しないので表示しない */
+.vs-stage:has(.slide--title.is-current) .vs-safe-indicator {
+  display: none;
+}
+
+/* メモ表示モード：スライド（ウィンドウに収まる大きさ、周囲に余白 16px）の真下に配信用メモ欄。top はプレイヤーが設定する */
+.vs-script {
+  position: fixed;
+  left: 0;
+  top: 752px;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  border-top: 2px solid #333;
+  background: #15171d;
+  color: #f2f2f2;
+  font-family: var(--font-body), sans-serif;
+}
+.vs-script[hidden] {
+  display: none;
+}
+.vs-script__bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 20px;
+  padding: 6px 16px;
+  background: #0c0d11;
+  color: #d0d4de;
+  font-size: 16px;
+}
+.vs-script__page {
+  color: #f2f2f2;
+  font-weight: 700;
+}
+.vs-script__page small {
+  margin-left: 0.5em;
+  color: #aab0c0;
+  font-size: inherit;
+  font-weight: 400;
+}
+.vs-script__size {
+  font-size: 12px;
+  opacity: 0.7;
+}
+.vs-script__next {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.vs-page-input {
+  width: 2.6em;
+  padding: 0 4px;
+  border: 1px solid #444;
+  border-radius: 6px;
+  background: #22252e;
+  color: #fff;
+  font: inherit;
+  text-align: right;
+  /* 数値入力の増減ボタンは使わない */
+  appearance: textfield;
+}
+.vs-page-input::-webkit-inner-spin-button,
+.vs-page-input::-webkit-outer-spin-button {
+  margin: 0;
+  appearance: none;
+}
+.vs-page-input:focus {
+  border-color: #ffcc4d;
+  outline: none;
+}
+.vs-toc {
+  position: relative;
+}
+/* 目次は下に開く（スライド側には重ならないので配信に映らない） */
+.vs-toc__panel {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  min-width: 18em;
+  max-width: 32em;
+  overflow-y: auto;
+  padding: 6px;
+  border: 1px solid #3a3e4a;
+  border-radius: 10px;
+  background: #1d2028;
+  box-shadow: 0 10px 30px rgb(0 0 0 / 0.5);
+}
+.vs-script__bar .vs-toc__item {
+  /* 高さが足りないときに項目が縮んで潰れないよう、縮ませずにスクロールさせる */
+  flex: none;
+  /* ボタンを flex にすると一部ブラウザで省略表示（…）が崩れるため、通常のブロックにする */
+  display: block;
+  width: 100%;
+  padding: 6px 10px;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: #d8dce6;
+  line-height: 1.5;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.vs-script__bar .vs-toc__item:hover {
+  background: #2a2e39;
+}
+.vs-toc__item.is-title {
+  color: #fff;
+  font-weight: 700;
+}
+.vs-script__bar .vs-toc__item.is-current {
+  background: #3a3220;
+  color: #ffcc4d;
+}
+.vs-toc__num {
+  display: inline-block;
+  min-width: 1.6em;
+  margin-right: 0.6em;
+  color: #8a90a0;
+  text-align: right;
+}
+.vs-script__bar button:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+.vs-script__bar button {
+  padding: 2px 10px;
+  border: 1px solid #444;
+  border-radius: 6px;
+  background: #22252e;
+  color: #eee;
+  font: inherit;
+  cursor: pointer;
+}
+.vs-script__text {
+  flex: 1;
+  overflow: auto;
+  padding: 12px 20px 24px;
+  font-size: 18px;
+  line-height: 1.7;
+}
+.vs-script__empty {
+  color: #777;
+}
+.vs-seg {
+  padding-left: 16px;
+  border-left: 4px solid transparent;
+  opacity: 0.45;
+}
+.vs-seg + .vs-seg {
+  margin-top: 0.6em;
+}
+.vs-seg__label {
+  display: block;
+  color: #8a90a0;
+  font-size: 12px;
+  line-height: 1.6;
+}
+.vs-seg.is-current {
+  border-left-color: #ffcc4d;
+  opacity: 1;
+}

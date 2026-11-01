@@ -1,0 +1,18 @@
+/*
+ * 出力スライド用 CSS のエントリ。ビルド時に Tailwind + daisyUI で生成し、
+ * 文字列としてツールに同梱して書き出し HTML / プレビューに埋め込む。
+ */
+@import "tailwindcss" source(none);
+@source "../render";
+@plugin "daisyui" {
+  themes: false;
+}
+
+@import "../themes/themes.css";
+@import "./base.css";
+@import "./player.css";
+@import "./simple.css";
+@import "./card.css";
+@import "./bubble.css";
+@import "./square.css";
+@import "./letter.css";

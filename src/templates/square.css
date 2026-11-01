@@ -1,0 +1,44 @@
+/* しかく：周囲に淡い四角（角は丸めない。塗り＋線）をあしらう。中央の本文エリアには置かない */
+
+[data-template="square"] .slide::before,
+[data-template="square"] .slide::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+/* 塗りの四角（メインカラーを淡く） */
+[data-template="square"] .slide::before {
+  background: color-mix(in oklab, var(--color-primary) 13%, transparent);
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1920 1080' preserveAspectRatio='none'%3E%3Crect x='1700' y='-90' width='240' height='240' transform='rotate(18 1820 30)' fill='black'/%3E%3Crect x='1580' y='-30' width='80' height='80' transform='rotate(34 1620 10)' fill='black'/%3E%3Crect x='-110' y='860' width='250' height='250' transform='rotate(14 15 985)' fill='black'/%3E%3Crect x='170' y='1010' width='70' height='70' transform='rotate(40 205 1045)' fill='black'/%3E%3Crect x='1860' y='560' width='110' height='110' transform='rotate(26 1915 615)' fill='black'/%3E%3Crect x='1060' y='-70' width='90' height='90' transform='rotate(30 1105 -25)' fill='black'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1920 1080' preserveAspectRatio='none'%3E%3Crect x='1700' y='-90' width='240' height='240' transform='rotate(18 1820 30)' fill='black'/%3E%3Crect x='1580' y='-30' width='80' height='80' transform='rotate(34 1620 10)' fill='black'/%3E%3Crect x='-110' y='860' width='250' height='250' transform='rotate(14 15 985)' fill='black'/%3E%3Crect x='170' y='1010' width='70' height='70' transform='rotate(40 205 1045)' fill='black'/%3E%3Crect x='1860' y='560' width='110' height='110' transform='rotate(26 1915 615)' fill='black'/%3E%3Crect x='1060' y='-70' width='90' height='90' transform='rotate(30 1105 -25)' fill='black'/%3E%3C/svg%3E");
+}
+/* 線の四角（アクセントカラー） */
+[data-template="square"] .slide::after {
+  background: color-mix(in oklab, var(--color-accent) 55%, transparent);
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1920 1080' preserveAspectRatio='none'%3E%3Crect x='1660' y='-10' width='170' height='170' transform='rotate(8 1745 75)' fill='none' stroke='black' stroke-width='10'/%3E%3Crect x='-75' y='800' width='150' height='150' transform='rotate(28 0 875)' fill='none' stroke='black' stroke-width='10'/%3E%3Crect x='1850' y='250' width='70' height='70' transform='rotate(40 1885 285)' fill='none' stroke='black' stroke-width='8'/%3E%3Crect x='1300' y='1030' width='90' height='90' transform='rotate(18 1345 1075)' fill='none' stroke='black' stroke-width='8'/%3E%3Crect x='-80' y='540' width='110' height='110' transform='rotate(22 -25 595)' fill='none' stroke='black' stroke-width='8'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1920 1080' preserveAspectRatio='none'%3E%3Crect x='1660' y='-10' width='170' height='170' transform='rotate(8 1745 75)' fill='none' stroke='black' stroke-width='10'/%3E%3Crect x='-75' y='800' width='150' height='150' transform='rotate(28 0 875)' fill='none' stroke='black' stroke-width='10'/%3E%3Crect x='1850' y='250' width='70' height='70' transform='rotate(40 1885 285)' fill='none' stroke='black' stroke-width='8'/%3E%3Crect x='1300' y='1030' width='90' height='90' transform='rotate(18 1345 1075)' fill='none' stroke='black' stroke-width='8'/%3E%3Crect x='-80' y='540' width='110' height='110' transform='rotate(22 -25 595)' fill='none' stroke='black' stroke-width='8'/%3E%3C/svg%3E");
+}
+[data-template="square"] .slide--title::before {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1920 1080' preserveAspectRatio='none'%3E%3Crect x='1600' y='-120' width='360' height='360' transform='rotate(16 1780 60)' fill='black'/%3E%3Crect x='1480' y='190' width='110' height='110' transform='rotate(32 1535 245)' fill='black'/%3E%3Crect x='-140' y='760' width='380' height='380' transform='rotate(12 50 950)' fill='black'/%3E%3Crect x='260' y='950' width='100' height='100' transform='rotate(38 310 1000)' fill='black'/%3E%3Crect x='1780' y='700' width='180' height='180' transform='rotate(24 1870 790)' fill='black'/%3E%3Crect x='-60' y='-70' width='180' height='180' transform='rotate(30 30 20)' fill='black'/%3E%3Crect x='820' y='980' width='80' height='80' transform='rotate(20 860 1020)' fill='black'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1920 1080' preserveAspectRatio='none'%3E%3Crect x='1600' y='-120' width='360' height='360' transform='rotate(16 1780 60)' fill='black'/%3E%3Crect x='1480' y='190' width='110' height='110' transform='rotate(32 1535 245)' fill='black'/%3E%3Crect x='-140' y='760' width='380' height='380' transform='rotate(12 50 950)' fill='black'/%3E%3Crect x='260' y='950' width='100' height='100' transform='rotate(38 310 1000)' fill='black'/%3E%3Crect x='1780' y='700' width='180' height='180' transform='rotate(24 1870 790)' fill='black'/%3E%3Crect x='-60' y='-70' width='180' height='180' transform='rotate(30 30 20)' fill='black'/%3E%3Crect x='820' y='980' width='80' height='80' transform='rotate(20 860 1020)' fill='black'/%3E%3C/svg%3E");
+}
+[data-template="square"] .slide--title::after {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1920 1080' preserveAspectRatio='none'%3E%3Crect x='1540' y='30' width='230' height='230' transform='rotate(6 1655 145)' fill='none' stroke='black' stroke-width='12'/%3E%3Crect x='40' y='820' width='220' height='220' transform='rotate(26 150 930)' fill='none' stroke='black' stroke-width='12'/%3E%3Crect x='1700' y='520' width='90' height='90' transform='rotate(40 1745 565)' fill='none' stroke='black' stroke-width='10'/%3E%3Crect x='150' y='90' width='90' height='90' transform='rotate(18 195 135)' fill='none' stroke='black' stroke-width='10'/%3E%3Crect x='1180' y='960' width='120' height='120' transform='rotate(14 1240 1020)' fill='none' stroke='black' stroke-width='10'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1920 1080' preserveAspectRatio='none'%3E%3Crect x='1540' y='30' width='230' height='230' transform='rotate(6 1655 145)' fill='none' stroke='black' stroke-width='12'/%3E%3Crect x='40' y='820' width='220' height='220' transform='rotate(26 150 930)' fill='none' stroke='black' stroke-width='12'/%3E%3Crect x='1700' y='520' width='90' height='90' transform='rotate(40 1745 565)' fill='none' stroke='black' stroke-width='10'/%3E%3Crect x='150' y='90' width='90' height='90' transform='rotate(18 195 135)' fill='none' stroke='black' stroke-width='10'/%3E%3Crect x='1180' y='960' width='120' height='120' transform='rotate(14 1240 1020)' fill='none' stroke='black' stroke-width='10'/%3E%3C/svg%3E");
+}
+[data-template="square"] .slide--content .slide__header {
+  /* 見出しの下に、本文の幅いっぱいの二重線 */
+  padding-bottom: 12px;
+  border-bottom: 6px double color-mix(in oklab, var(--color-primary) 55%, transparent);
+}
+[data-template="square"] .slide--content .slide__title {
+  color: var(--color-primary);
+}
+[data-template="square"] .slide--title .slide__title {
+  color: var(--color-primary);
+}

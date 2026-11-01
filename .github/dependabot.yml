@@ -1,0 +1,35 @@
+# 依存パッケージの自動更新（Dependabot）
+# - バージョン更新：月に1回、まとめて1つの PR にする（メジャー更新は別の PR に分ける）
+# - セキュリティ更新：脆弱性が見つかったらすぐ、まとめて1つの PR にする
+#   （リポジトリの Settings → Code security で「Dependabot security updates」を有効にしておく）
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: monthly
+      timezone: Asia/Tokyo
+    open-pull-requests-limit: 5
+    groups:
+      npm-minor-and-patch:
+        applies-to: version-updates
+        update-types: [minor, patch]
+      npm-major:
+        applies-to: version-updates
+        update-types: [major]
+      npm-security:
+        applies-to: security-updates
+        patterns: ["*"]
+    ignore:
+      # svelte-check が TypeScript 7 に未対応のため 6 系に固定している（CLAUDE.md 参照）
+      - dependency-name: typescript
+        update-types: ["version-update:semver-major"]
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
+      timezone: Asia/Tokyo
+    groups:
+      github-actions:
+        patterns: ["*"]

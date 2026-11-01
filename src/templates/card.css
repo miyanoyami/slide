@@ -1,0 +1,31 @@
+/* かーど：色付きの背景の上に角丸のカードを置く */
+
+[data-template="card"] .slide {
+  background: var(--color-base-300);
+}
+[data-template="card"] .slide::before {
+  content: "";
+  position: absolute;
+  inset: 36px 36px 48px;
+  border-radius: var(--radius-box);
+  background: var(--color-base-100);
+  box-shadow: 0 12px 0 color-mix(in oklab, var(--color-primary) 35%, transparent);
+}
+[data-template="card"] .slide--content {
+  padding: 84px 128px 108px;
+}
+[data-template="card"] .slide--content .slide__title {
+  color: var(--color-primary);
+}
+[data-template="card"] .slide--content .slide__header {
+  /* 見出しの下に、本文の幅いっぱいの二重線 */
+  padding-bottom: 12px;
+  border-bottom: 6px double color-mix(in oklab, var(--color-primary) 55%, transparent);
+}
+[data-template="card"] .slide--title .slide__title {
+  color: var(--color-primary);
+}
+[data-template="card"] .slide__number {
+  left: 76px;
+  bottom: 74px;
+}

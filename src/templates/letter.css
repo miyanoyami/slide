@@ -1,0 +1,12 @@
+/* びんせん：ページ全体に薄いマス目（方眼）。本文ページもタイトルページも同じ */
+
+[data-template="letter"] .slide {
+  --grid: color-mix(in oklab, var(--color-primary) 11%, transparent);
+  background:
+    linear-gradient(to right, var(--grid) 0 2px, transparent 2px) 0 0 / 48px 48px,
+    linear-gradient(to bottom, var(--grid) 0 2px, transparent 2px) 0 0 / 48px 48px,
+    var(--color-base-100);
+}
+[data-template="letter"] .slide__title {
+  color: var(--color-primary);
+}

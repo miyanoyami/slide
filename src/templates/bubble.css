@@ -1,0 +1,50 @@
+/* まる：淡い円を複数散りばめて重ねる。中央の本文エリアには大きな円を置かない */
+
+[data-template="bubble"] .slide::before,
+[data-template="bubble"] .slide::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+/* 大きめの円 */
+[data-template="bubble"] .slide::before {
+  background:
+    radial-gradient(circle 230px at 1830px -30px, color-mix(in oklab, var(--color-accent) 42%, transparent) calc(100% - 1px), transparent 100%),
+    radial-gradient(circle 140px at 1590px 20px, color-mix(in oklab, var(--color-secondary) 20%, transparent) calc(100% - 1px), transparent 100%),
+    radial-gradient(circle 95px at 1905px 240px, color-mix(in oklab, var(--color-primary) 15%, transparent) calc(100% - 1px), transparent 100%),
+    radial-gradient(circle 210px at -20px 1070px, color-mix(in oklab, var(--color-secondary) 22%, transparent) calc(100% - 1px), transparent 100%),
+    radial-gradient(circle 120px at 200px 1090px, color-mix(in oklab, var(--color-accent) 36%, transparent) calc(100% - 1px), transparent 100%);
+}
+/* 中くらいの円（小さい円を増やしすぎない） */
+[data-template="bubble"] .slide::after {
+  background:
+    radial-gradient(circle 70px at 1690px 170px, color-mix(in oklab, var(--color-primary) 18%, transparent) calc(100% - 1px), transparent 100%),
+    radial-gradient(circle 52px at 1450px 50px, color-mix(in oklab, var(--color-accent) 44%, transparent) calc(100% - 1px), transparent 100%),
+    radial-gradient(circle 80px at 50px 870px, color-mix(in oklab, var(--color-primary) 15%, transparent) calc(100% - 1px), transparent 100%);
+}
+[data-template="bubble"] .slide--title::before {
+  background:
+    radial-gradient(circle 380px at -80px -60px, color-mix(in oklab, var(--color-accent) 45%, transparent) calc(100% - 1px), transparent 100%),
+    radial-gradient(circle 200px at 300px 60px, color-mix(in oklab, var(--color-secondary) 20%, transparent) calc(100% - 1px), transparent 100%),
+    radial-gradient(circle 260px at 1900px 150px, color-mix(in oklab, var(--color-primary) 15%, transparent) calc(100% - 1px), transparent 100%),
+    radial-gradient(circle 320px at 1700px 1120px, color-mix(in oklab, var(--color-secondary) 22%, transparent) calc(100% - 1px), transparent 100%),
+    radial-gradient(circle 180px at 520px 1100px, color-mix(in oklab, var(--color-accent) 34%, transparent) calc(100% - 1px), transparent 100%);
+}
+[data-template="bubble"] .slide--title::after {
+  background:
+    radial-gradient(circle 96px at 1560px 110px, color-mix(in oklab, var(--color-accent) 42%, transparent) calc(100% - 1px), transparent 100%),
+    radial-gradient(circle 78px at 120px 900px, color-mix(in oklab, var(--color-primary) 16%, transparent) calc(100% - 1px), transparent 100%),
+    radial-gradient(circle 64px at 1860px 760px, color-mix(in oklab, var(--color-accent) 44%, transparent) calc(100% - 1px), transparent 100%);
+}
+[data-template="bubble"] .slide--content .slide__header {
+  /* 見出しの下に、本文の幅いっぱいの二重線 */
+  padding-bottom: 12px;
+  border-bottom: 6px double color-mix(in oklab, var(--color-primary) 55%, transparent);
+}
+[data-template="bubble"] .slide--content .slide__title {
+  color: var(--color-primary);
+}
+[data-template="bubble"] .slide--title .slide__title {
+  color: var(--color-primary);
+}
