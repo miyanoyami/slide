@@ -17,7 +17,8 @@
 
 <dialog bind:this={dialog} class="modal" onclose={() => (open = false)}>
   <div class="modal-box max-w-xl text-sm leading-relaxed">
-    <h2 class="mb-4 text-lg font-bold">使い方</h2>
+    <h2 class="text-lg font-bold">使い方</h2>
+    <p class="mt-1 mb-5 opacity-80">それなりに見やすく整ったスライドを、簡単に作れるサービスです。<br />配信用のメモ付きスライドショーも同時に作れます。</p>
 
     <div class="space-y-5">
       <section>
